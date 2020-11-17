@@ -1,0 +1,13 @@
+@mixin clearfix{
+    &::after{
+        content:"";
+        display: table;
+        clear: both;
+    }
+}
+
+
+
+@mixin black-shadow($x, $y, $z){
+    box-shadow: 0 $x $y rgba($color-black, $z)
+}

@@ -1,0 +1,115 @@
+/* --------------------- BUTTONS ------------------   */
+
+
+.btn{
+    &,  //this is for the <button> element in the form
+    &:link,
+    &:visited{
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem  4rem;
+        display: inline-block;
+        border-radius: 10rem; 
+        transition: all 0.2s; /*transition for all the propeties of btn (thus 'all') */
+        position: relative;
+        font-size: $default-font-size;
+
+
+        //change for <button> elenmet
+        border: none;
+        cursor: pointer;
+    }
+    
+    &:hover{
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black,0.2);
+
+          
+        &::after{
+            transform: scaleX(1.2) scaleY(1.6);
+            opacity: 0; /*trick for fading the after button out*/
+
+        }
+    }
+    
+    
+    &:active,
+    &:focus{
+        outline: none;
+        transform: translate(-0.2rem);  /*in relation to initial btn and not to hover*/
+        box-shadow: 0 .5rem 1rem rgba($color-black,0.5);
+    
+    }
+     
+    
+    &--white{
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after{
+        background-color: $color-white;
+        }
+    }
+
+    &--green{
+        background-image: linear-gradient(to top,$color-primary-light, $color-primary-dark);
+        color: $color-white;
+
+        &::after{
+            background-image: linear-gradient(to top,$color-primary-light, $color-primary-dark);
+        }
+    }
+
+
+    &::after{
+        content: "";
+        display: inline-block;
+        height: 100%; /*after psaudo element is like a child so 100% is exactly same size as btn element*/
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated{
+        animation-name: moveUp;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-delay: .75s ;
+        animation-fill-mode: backwards;
+    }
+    
+
+}
+
+.btn--text{
+    &:link,
+    &:visited{
+        display: inline-block;
+        text-decoration: none;
+        color: $color-primary;
+        font-size: $default-font-size;
+        border-bottom: 1px solid $color-primary;
+        padding: .3rem;        
+        transition: all 0.6s; /*transition for all the propeties of btn (thus 'all') */
+    }
+
+    &:hover{
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black,0.2); // x dir, y dir, blur , color
+        transform: translateY(-0.2rem);
+    }
+
+    &:active{
+        transform: translateX(-0.1rem);  /*in relation to initial btn and not to hover*/
+        box-shadow: 0 .2rem 0.5rem rgba($color-black,0.5);
+        transition: .1s;
+    }
+}
+
+
+

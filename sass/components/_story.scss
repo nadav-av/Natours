@@ -1,0 +1,71 @@
+.story{
+    width: 75%;
+    margin: 0 auto;
+    padding: 6rem;
+    padding-left: 9rem;
+    border-radius: 3px;
+    @include black-shadow(3rem, 6rem, 0.3);
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+    background-color: rgba($color-white, 0.6);
+
+
+
+    &__shape{
+        position: relative;
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        shape-outside: circle(50% at 50% 50%); //radious, 50 50 center- prefect circle --- to work have to be floated and have to have height
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        overflow: hidden; //some bug without it.. dont understand why 
+        
+        // a floated object so best to make space is transform and translate:
+        transform: translateX(-3rem) skewX(12deg);
+
+    }
+
+    &__img{
+        height: 100%;
+        transform: translateX(-3.6rem) scale(1.3);
+        transition: all .5s;
+    }
+
+    &__text{
+        transform: skewX(12deg);
+    }
+
+    &__caption{
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate((-50%, 20%));
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .3s;
+        backface-visibility: hidden;
+
+    }
+
+
+    &:hover &__caption{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        
+    }
+
+    &:hover &__img{
+        transform: translateX(-3.6rem) scale(1);
+        filter: blur(3px) brightness(85%);
+
+
+    }
+
+}
+
+
